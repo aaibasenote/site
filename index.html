@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BASENOTE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --brand: #4F46E5;
+      --brand-dark: #3730A3;
+      --brand-light: #EEF2FF;
+      --brand-mid: #6366F1;
+      --text-primary: #111827;
+      --text-secondary: #6B7280;
+      --text-muted: #9CA3AF;
+      --bg: #FFFFFF;
+      --surface: #F9FAFB;
+      --border: #E5E7EB;
+      --radius-sm: 12px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-xl: 32px;
+    }
+
+    html, body {
+      min-height: 100vh;
+      background: var(--bg);
+      font-family: 'Pretendard', 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text-primary);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 24px 20px;
+      background: var(--bg);
+    }
+
+    .wrapper {
+      width: 100%;
+      max-width: 420px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    /* ── Block 1 ── */
+    .card-hero {
+      background: var(--brand);
+      border-radius: var(--radius-xl);
+      padding: 48px 36px 52px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-hero::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.07);
+    }
+
+    .card-hero::after {
+      content: '';
+      position: absolute;
+      bottom: -40px;
+      left: -30px;
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.05);
+    }
+
+    .brand-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 100px;
+      padding: 6px 14px;
+      margin-bottom: 28px;
+    }
+
+    .brand-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #A5F3FC;
+    }
+
+    .brand-badge span {
+      font-size: 12px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.9);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .hero-title {
+      font-size: 44px;
+      font-weight: 800;
+      color: #FFFFFF;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+    }
+
+    .hero-desc {
+      font-size: 17px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.6;
+    }
+
+    .hero-desc strong {
+      color: #FFFFFF;
+      font-weight: 600;
+    }
+
+    /* ── Block 2 ── */
+    .card-download {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 28px 28px 32px;
+    }
+
+    .dl-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .dl-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      background: var(--brand);
+      color: #FFFFFF;
+      border: none;
+      border-radius: var(--radius-md);
+      padding: 18px 24px;
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.15s, transform 0.12s;
+      letter-spacing: -0.01em;
+    }
+
+    .dl-btn:hover {
+      background: var(--brand-dark);
+    }
+
+    .dl-btn:active {
+      transform: scale(0.985);
+    }
+
+    .dl-icon {
+      width: 22px;
+      height: 22px;
+      flex-shrink: 0;
+    }
+
+    .dl-meta {
+      margin-top: 14px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .dl-meta-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #10B981;
+    }
+
+    .dl-meta-text {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+
+    <!-- Block 1: Hero -->
+    <div class="card-hero">
+      <div class="brand-badge">
+        <div class="brand-dot"></div>
+        <span>BASENOTE</span>
+      </div>
+      <h1 class="hero-title">온디바이스로<br>지식을<br>쉽게 공유해요!</h1>
+
+    </div>
+
+    <!-- Block 2: Download -->
+    <div class="card-download">
+      <p class="dl-label">지금 바로 시작하기</p>
+      <a
+        href="https://drive.google.com/uc?export=download&id=17JVqEXgv8Ydt4cCVS5fbR9kWdAyNSe5h"
+        class="dl-btn"
+        download
+      >
+        <!-- Android icon -->
+        <svg class="dl-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M17.6 9.48l1.84-3.18c.16-.31.04-.69-.26-.85a.637.637 0 00-.85.26l-1.87 3.23A10.53 10.53 0 0012 8c-1.53 0-2.98.3-4.27.95L5.87 5.71a.637.637 0 00-.85-.26c-.3.16-.42.54-.26.85L6.6 9.48A9.979 9.979 0 002 18h20a9.979 9.979 0 00-4.4-8.52zM7 15.25a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5zm10 0a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5z" fill="currentColor"/>
+        </svg>
+        안드로이드 APK 다운로드하기
+      </a>
+      <div class="dl-meta">
+        <div class="dl-meta-dot"></div>
+        <span class="dl-meta-text">무료 · Android 11 이상</span>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
